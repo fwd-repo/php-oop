@@ -9,6 +9,11 @@ class Recipe
 	public $tag = array();
 	public $source = "Ed T";
 
+	public function displayRecipe()
+	{
+		$this->title . " by " . $this->source;
+	}
+
 }
 
 $recipe1 = new Recipe();
