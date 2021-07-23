@@ -11,17 +11,18 @@ class Recipe
 
 	public function displayRecipe()
 	{
-		$this->title . " by " . $this->source;
+		return $this->title . " by " . $this->source;
 	}
 
 }
 
 $recipe1 = new Recipe();
-echo $recipe1->source;
 $recipe1->source = "Delia Smith";
-echo $recipe1->source;
+$recipe1->title = "My First Recipe";
 
 $recipe2 = new Recipe();
 $recipe2->source = "Jamie Oliver";
-echo $recipe1->source;
-echo $recipe2->source;
+$recipe2->title = "My Second Recipe";
+
+echo $recipe1->displayRecipe();
+echo $recipe2->displayRecipe();
