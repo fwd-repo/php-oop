@@ -8,8 +8,8 @@ class Recipe
 	public $yield;
 	public $tag = array();
 	public $source = "Ed T";
-
-	private $measurement = array(
+  
+  private $measurements = array(
 		"tsp",
 		"tbsp",
 		"cup",
@@ -31,6 +31,26 @@ class Recipe
     return $this->title; 
   }
   
+  public function addIngredient($item, $amount = null, $measure = null)
+  {
+    if ($amount != null && !is_float($amount) && !is_int($amount)) {
+      exit("The amount must be a float: " . gettype($amount) . " $amount given");
+    }
+    if ($measure != null && !in_array(strtolower($measure), $this->measurements)) {
+      exit("Please enter a valid measurement: " . implode(", ", $this->measurements));
+    }
+    $this->ingredients[] = array(
+      "item" => ucwords($item),
+      "amount" => $amount,
+      "measure" => strtolower($measure)
+    );
+  }
+  
+  public function getIngredients()
+  {
+    return $this->ingredients;
+  }
+  
 	public function displayRecipe()
 	{
 		return $this->title . " by " . $this->source;
@@ -41,6 +61,7 @@ class Recipe
 $recipe1 = new Recipe();
 $recipe1->source = "Delia Smith";
 $recipe1->setTitle("my first recipe");
+$recipe1->addIngredient("egg", 1);
 
 $recipe2 = new Recipe();
 $recipe2->source = "Jamie Oliver";
