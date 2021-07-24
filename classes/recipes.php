@@ -57,16 +57,3 @@ class Recipe
 	}
 
 }
-
-$recipe1 = new Recipe();
-$recipe1->source = "Delia Smith";
-$recipe1->setTitle("my first recipe");
-$recipe1->addIngredient("egg", 1);
-
-$recipe2 = new Recipe();
-$recipe2->source = "Jamie Oliver";
-$recipe2->setTitle("my second recipe");
-
-echo $recipe1->getTitle();
-echo $recipe1->displayRecipe();
-echo $recipe2->displayRecipe();
