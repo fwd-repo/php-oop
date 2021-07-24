@@ -8,6 +8,18 @@ class Recipe
 	public $yield;
 	public $tag = array();
 	public $source = "Ed T";
+
+	private $measurement = array(
+		"tsp",
+		"tbsp",
+		"cup",
+		"oz",
+		"lb",
+		"fl oz",
+		"pint",
+		"quart",
+		"gallon"
+	);
   
   public function setTitle($title)
   {
