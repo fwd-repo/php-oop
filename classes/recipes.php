@@ -36,7 +36,7 @@ class Recipe
     	if ($amount != null && !is_float($amount) && !is_int($amount)) {
       		exit("The amount must be a float: " . gettype($amount) . " $amount given");
     	}
-    
+
     	if ($measure != null && !in_array(strtolower($measure), $this->measurements)) {
       		exit("Please enter a valid measurement: " . implode(", ", $this->measurements));
     	}
@@ -50,7 +50,7 @@ class Recipe
   
   	public function addInstruction($string)
   	{
-    	$this->instructions[] = $string; 
+  		$this->instructions[] = $string; 
   	}
   
   	public function getInstructions()

@@ -1,5 +1,5 @@
 <?php
-include "classes/recipes.php";
+include "classes/recipe.php";
 include "classes/render.php";
 
 $recipe1 = new Recipe();
