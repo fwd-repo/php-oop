@@ -24,6 +24,11 @@ $cookbook->addRecipe($granola);
 $cookbook->addRecipe($spicy_omelette);
 $cookbook->addRecipe($scones);
 
-echo Render::listRecipes($cookbook->getRecipeTitles());
-//echo Render::displayRecipe($belgian_waffles);
-//echo Render::displayRecipe($belgian_waffles);
+$breakfast = new RecipeCollection("Favorite Breakfasts");
+
+foreach ($cookbook->filterByTag("breakfast") as $recipe)
+{
+	$breakfast->addRecipe($recipe);  
+}
+
+echo Render::listRecipes($breakfast->getRecipeTitles());
