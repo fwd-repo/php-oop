@@ -4,7 +4,7 @@ include "classes/render.php";
 include "classes/recipecollection.php";
 include "inc/allrecipes.php";
 
-$cookbook = new RecipeCollection("BBQ Recipes");
+$cookbook = new RecipeCollection("Treehouse Recipes");
 $cookbook->addRecipe($lemon_chicken);
 $cookbook->addRecipe($granola_muffins);
 $cookbook->addRecipe($belgian_waffles);
@@ -25,10 +25,10 @@ $cookbook->addRecipe($spicy_omelette);
 $cookbook->addRecipe($scones);
 
 $breakfast = new RecipeCollection("Favorite Breakfasts");
-
-foreach ($cookbook->filterByTag("breakfast") as $recipe)
-{
-	$breakfast->addRecipe($recipe);  
+foreach ($cookbook->filterByTag("breakfast") as $recipe) {
+    $breakfast->addRecipe($recipe);
 }
 
-echo Render::listRecipes($breakfast->getRecipeTitles());
+#echo Render::listRecipes($breakfast->getRecipes()); 
+echo "\n\nSHOPPING LIST\n\n";
+echo Render::listShopping($breakfast->getCombinedIngredients());
