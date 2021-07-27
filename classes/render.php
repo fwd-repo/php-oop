@@ -9,6 +9,25 @@ class Render
         return $output;
     }
     
+    public static function listShopping($ingredient_list)
+    {
+        ksort($ingredient_list);
+        return implode("\n", array_keys($ingredient_list));
+    }
+    
+    public static function listRecipes($titles)
+    {
+        asort($titles);
+        $output = "";
+        foreach ($titles as $key => $title) {
+            if ($output != "") {
+                $output .= "\n";
+            }
+            $output .= "[$key] $title";
+        }
+        return $output;
+    }
+    
     public static function listIngredients($ingredients)
     {
         $output = "";
@@ -34,14 +53,4 @@ class Render
         return $output;
     }
     
-    public static function listRecipes($titles)
-    {
-        return implode("\n",$titles);
-    }
-    
-    public static function listShopping($ingredient_list)
-    {
-        ksort($ingredient_list);
-        return implode("\n",array_keys($ingredient_list));
-    }
 }

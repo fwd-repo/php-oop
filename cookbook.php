@@ -1,5 +1,5 @@
 <?php
-include "classes/recipe.php";
+include "classes/recipes.php";
 include "classes/render.php";
 include "classes/recipecollection.php";
 include "inc/allrecipes.php";
@@ -29,6 +29,14 @@ foreach ($cookbook->filterByTag("breakfast") as $recipe) {
     $breakfast->addRecipe($recipe);
 }
 
-#echo Render::listRecipes($breakfast->getRecipes()); 
+$week1 = new RecipeCollection("Meal Plan: Week 1");
+$week1->addRecipe($cookbook->filterById(1));
+$week1->addRecipe($cookbook->filterById(2));
+$week1->addRecipe($cookbook->filterById(1));
+$week1->addRecipe($cookbook->filterById(14));
+echo $cookbook->getTitle();
+echo "\n";
+echo Render::listRecipes($cookbook->getRecipeTitles());
 echo "\n\nSHOPPING LIST\n\n";
-echo Render::listShopping($breakfast->getCombinedIngredients());
+echo Render::listShopping($week1->getCombinedIngredients());
+echo Render::displayRecipe($cookbook->filterById(2));
